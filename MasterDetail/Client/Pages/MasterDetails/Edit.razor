@@ -1,0 +1,87 @@
+﻿@page "/employee/edit/{EmployeeId:int}"
+@using MasterDetail.Shared;
+@inject HttpClient http
+@inject NavigationManager navigationManager
+
+
+<h4>Update Employee</h4>
+<EmpolyeeForm employee="employee" employeeDepartments="employeeDepartments" OnValidSubmit="OnValidSubmit" SelectedFileChanged="HandleFileChanged"></EmpolyeeForm>
+<div class="d-flex mt-4">
+    <a class="btn btn-link" href="Index">Back to list</a>
+</div>
+
+
+@code {
+
+    [Parameter] public int EmployeeId { get; set; }
+
+    EmployeeVM employee = new EmployeeVM();
+    List<Department>? employeeDepartments = new List<Department>();
+    private IBrowserFile selectedFile;
+
+    protected override async Task OnInitializedAsync()
+    {
+        selectedFile = null;
+        employeeDepartments = await http.GetFromJsonAsync<List<Department>>("api/MasterDetails/GetDepartments");
+
+        employee = await http.GetFromJsonAsync<EmployeeVM>($"api/MasterDetails/{EmployeeId}");
+
+        foreach (var entry in employee.BookingEntries)
+        {
+            employee.DepartmentList.Add(new Department
+            {
+                    DepartmentId = entry.DepartmentId
+                });
+        }
+
+    }
+
+    private async Task HandleFileChanged(IBrowserFile file)
+    {
+        selectedFile = file;
+        Console.WriteLine(selectedFile.Name);
+    }
+
+    private async Task OnValidSubmit()
+    {
+        var formData = new MultipartFormDataContent();
+
+        foreach (var prop in typeof(EmployeeVM).GetProperties())
+        {
+            var value = prop.GetValue(employee);
+            if (value != null)
+            {
+                if (prop.Name == "DepartmentList")
+                {
+                    for (int i = 0; i < employee.DepartmentList.Count(); i++)
+                    {
+                        formData.Add(new StringContent(employee.DepartmentList[i].DepartmentId.ToString()), "DepartmentList[" + i + "].DepartmentId");
+                    }
+                    continue;
+                }
+                formData.Add(new StringContent(value.ToString()), prop.Name);
+            }
+        }
+
+        if (selectedFile is not null)
+        {
+            var fileContent = new StreamContent(selectedFile.OpenReadStream());
+            formData.Add(fileContent, "PictureFile", selectedFile.Name);
+        }
+
+        var response = await http.PutAsync("api/MasterDetails", formData);
+
+        var body = await response.Content.ReadAsStringAsync();
+
+        if (response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"the id of the user is: {body}");
+            navigationManager.NavigateTo("Index");
+        }
+        else
+        {
+            Console.WriteLine(body);
+        }
+
+    }
+}

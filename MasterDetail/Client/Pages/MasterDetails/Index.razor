@@ -1,0 +1,103 @@
+﻿@page "/index"
+@using MasterDetail.Shared;
+@inject HttpClient http
+@inject NavigationManager navigationManager
+
+
+<h3 class="text-center alert-primary">HR</h3>
+
+<div class="d-flex justify-content-end mb-2">
+    <a class="btn btn-primary btm-sm" href="/create">Add New</a>
+</div>
+@if (employees is null)
+{
+    <div class="d-flex justify-content-center mt-5">
+        <img src="/Images/loading.gif" />
+    </div>
+}
+@if (employees is not null)
+{
+    @foreach (var employee in employees)
+    {
+        <div class="card " >
+            <div class="card-header d-flex justify-content-between">
+                <span>
+                    <div>
+                        <img src="/Images/@employee.Picture" width="84" class="mr-4 rounded-circle" />
+
+                    </div>
+                    <br>
+                    <div>
+                        <b>Name:</b>  @employee.EmployeeName
+                        
+                    </div>
+
+                    <div>
+                        <b>Date of Birth:</b>  @employee.BirthDate
+                    </div>
+                    <div>
+                        <b>Phone:</b> @employee.Phone
+                    </div>
+                    <div>
+                        <b>Maritial Status:</b> @employee.MaritialStatus
+                    </div>
+                </span>
+                
+                <div>
+                    <a class="btn btn-success" href="employee/edit/@employee.EmployeeId">Edit</a>
+                    <a class="btn btn-warning" @onclick="@(()=> Delete(employee.EmployeeId))">Delete</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>DepartmentId</th>
+                            <th>DepartmentName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var singleEntry in employee.BookingEntries)
+                        {
+                            <tr>
+                                <td>@singleEntry.DepartmentId</td>
+                                <td>@singleEntry.Department.DepartmentName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+}
+
+
+
+@code {
+    List<Employee> employees { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+    async Task LoadData()
+    {
+        employees = await http.GetFromJsonAsync<List<Employee>>("api/MasterDetails/GetEmployees");
+    }
+
+    async Task Delete(int employeeId)
+    {
+        var response = await http.DeleteAsync($"api/MasterDetails/{employeeId}");
+
+        if (response.IsSuccessStatusCode)
+        {
+            // remove the deleted customer from the list
+            employees.RemoveAll(e => e.EmployeeId == employeeId);
+            StateHasChanged();
+        }
+        else
+        {
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+        }
+    }
+}

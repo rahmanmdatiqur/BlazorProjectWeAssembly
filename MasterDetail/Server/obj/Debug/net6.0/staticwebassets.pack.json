@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\22f6746c-185b-4da3-aea7-aeb816f3bf94.webp",
+      "PackagePath": "staticwebassets\\Images\\22f6746c-185b-4da3-aea7-aeb816f3bf94.webp"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\532fa793-2a26-402c-882b-4040342c3087.jpg",
+      "PackagePath": "staticwebassets\\Images\\532fa793-2a26-402c-882b-4040342c3087.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\5c609dd9-5b9d-4eed-a7c8-0a6b66a01ebc.jpg",
+      "PackagePath": "staticwebassets\\Images\\5c609dd9-5b9d-4eed-a7c8-0a6b66a01ebc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\5d9d6180-d778-4006-888b-8ee6b7381f14.jpg",
+      "PackagePath": "staticwebassets\\Images\\5d9d6180-d778-4006-888b-8ee6b7381f14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\9c600f23-3beb-4b48-a9c3-9d5d4bad16e4.png",
+      "PackagePath": "staticwebassets\\Images\\9c600f23-3beb-4b48-a9c3-9d5d4bad16e4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\b192e967-532a-4a9f-92b0-cfef3779a5c9.jpg",
+      "PackagePath": "staticwebassets\\Images\\b192e967-532a-4a9f-92b0-cfef3779a5c9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\be25043b-195b-4668-80d9-dc8a3e3a0489.jpg",
+      "PackagePath": "staticwebassets\\Images\\be25043b-195b-4668-80d9-dc8a3e3a0489.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\ca4021e0-080c-4a86-9328-c40347be8bfa.png",
+      "PackagePath": "staticwebassets\\Images\\ca4021e0-080c-4a86-9328-c40347be8bfa.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\dc7541f1-ef31-4b6c-81cd-7bc3db28449e.webp",
+      "PackagePath": "staticwebassets\\Images\\dc7541f1-ef31-4b6c-81cd-7bc3db28449e.webp"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\default.jpg",
+      "PackagePath": "staticwebassets\\Images\\default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\ec00f3ad-3da8-42b1-a746-6d87b449bb31.png",
+      "PackagePath": "staticwebassets\\Images\\ec00f3ad-3da8-42b1-a746-6d87b449bb31.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Contacts\\Desktop\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\MasterDetail\\Server\\wwwroot\\Images\\loading.gif",
+      "PackagePath": "staticwebassets\\Images\\loading.gif"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MasterDetail.Server.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.MasterDetail.Server.props",
+      "PackagePath": "build\\MasterDetail.Server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.MasterDetail.Server.props",
+      "PackagePath": "buildMultiTargeting\\MasterDetail.Server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.MasterDetail.Server.props",
+      "PackagePath": "buildTransitive\\MasterDetail.Server.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
